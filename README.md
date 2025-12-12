@@ -1,6 +1,7 @@
 # motion-suite
 
 motion-suite is a lightweight animation toolkit for React + Framer Motion.
+https://www.npmjs.com/package/motion-suite
 
 It provides 20+ production-ready animations including fade, slide, scale, blur, scroll-triggered, stagger sequences, and interaction effects.  
 Ideal for landing pages, dashboards, UI libraries, and modern frontend apps.
