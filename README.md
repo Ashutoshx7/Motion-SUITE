@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# motion-suite
 
-## Getting Started
+motion-suite is a lightweight animation toolkit for React + Framer Motion.
 
-First, run the development server:
+It provides 20+ production-ready animations including fade, slide, scale, blur, scroll-triggered, stagger sequences, and interaction effects.  
+Ideal for landing pages, dashboards, UI libraries, and modern frontend apps.
+
+---
+
+## Features
+
+- 20+ reusable animation components  
+- Fade, slide, scale, blur, pop, stagger, scroll animations  
+- Global animation config (`duration`, `distance`, `delay`, `easing`)  
+- Works instantly with zero setup  
+- Fully typed for TypeScript  
+- Built on top of Framer Motion  
+- Lightweight & production-ready  
+
+---
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install motion-suite framer-motion
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn add motion-suite framer-motion
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+```tsx
+import { FadeUp } from "motion-suite";
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<FadeUp>
+  <div>Hello World</div>
+</FadeUp>
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All animations support:
 
-## Deploy on Vercel
+- `delay`
+- `duration`
+- global config fallback
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Global Animation Config
+
+Customize all animations from one place.
+
+```tsx
+import { setMotionConfig } from "motion-suite";
+
+setMotionConfig({
+  duration: 0.45,
+  distance: 30,
+  delay: 0.1,
+  easing: [0.4, 0, 0.2, 1]
+});
+```
+
+Now every animation updates instantly across your app.
+
+---
+
+## Available Animations
+
+### Fade Animations
+- `FadeIn`
+- `FadeUp`
+- `FadeDown`
+- `FadeLeft`
+- `FadeRight`
+
+### Scale & Pop
+- `ScaleIn`
+- `PopIn`
+
+### Blur
+- `BlurIn`
+
+### Slide
+- `SlideLeft`
+- `SlideRight`
+
+### Scroll-triggered animations
+- `ScrollFadeUp`
+- `ScrollBlurIn`
+- `ScrollStaggerList`
+
+### Stagger Animations
+- `StaggerList`
+- `StaggerFade`
+
+### Interaction Animations
+- `HoverPop`
+- `TapPress`
+
+---
+
+## Examples
+
+### Fade + Slide Combo
+
+```tsx
+import { FadeUp, SlideLeft } from "motion-suite";
+
+<SlideLeft delay={0.1}>
+  <FadeUp>
+    <h1>Welcome to motion-suite</h1>
+  </FadeUp>
+</SlideLeft>
+```
+
+### Scroll-triggered animation
+
+```tsx
+import { ScrollFadeUp } from "motion-suite";
+
+<ScrollFadeUp>
+  <section>Your content appears on scroll</section>
+</ScrollFadeUp>
+```
+
+### PopIn (for cards, buttons, modals)
+
+```tsx
+import { PopIn } from "motion-suite";
+
+<PopIn>
+  <button>Click me</button>
+</PopIn>
+```
+
+### Stagger List
+
+```tsx
+import { StaggerList } from "motion-suite";
+
+<StaggerList delay={0.2}>
+  {["One", "Two", "Three"].map(item => (
+    <div key={item}>{item}</div>
+  ))}
+</StaggerList>
+```
+
+---
+
+## API
+
+All animations share:
+
+```tsx
+delay?: number
+duration?: number
+children: ReactNode
+```
+
+Global config:
+
+```tsx
+setMotionConfig({
+  duration?: number,
+  delay?: number,
+  distance?: number,
+  easing?: [number, number, number, number]
+})
+```
+
+---
+
+## Roadmap
+
+- Variants API  
+- Layout transitions  
+- Exit animations  
+- Carousel + reveal components  
+- Next.js demo website  
+
+---
+
+## Why motion-suite?
+
+- Zero-setup  
+- Developer-friendly  
+- Predictable, consistent animations  
+- Great defaults + high flexibility  
+- Works in every React environment (Next.js, Vite, CRA, Remix)  
+
+---
+
+## License
+
+MIT © Motion Kit

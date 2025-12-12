@@ -1,0 +1,31 @@
+'use client';
+
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
+import { motionConfig } from "../../presets";
+
+interface SlideRightProps {
+  children: ReactNode;
+  delay?: number;
+  duration?: number;
+}
+
+export function SlideRight({ children, delay, duration }: SlideRightProps) {
+  return (
+    <motion.div
+      initial={{ x: motionConfig.distance, opacity: 0 }}
+      animate={{
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: duration ?? motionConfig.duration,
+          delay: delay ?? motionConfig.delay,
+          ease: motionConfig.easing
+        }
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
