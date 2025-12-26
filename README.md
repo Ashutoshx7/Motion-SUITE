@@ -7,6 +7,8 @@ It provides 20+ production-ready animations including fade, slide, scale, blur, 
 Ideal for landing pages, dashboards, UI libraries, and modern frontend apps.
 
 ---
+<img width="1704" height="926" alt="image" src="https://github.com/user-attachments/assets/d57a055f-f71f-4819-8598-72b4fd93bee8" />
+
 
 ## Features
 
